@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ArvoreDecisao {
 
-	private No root = null;
+	private No raiz = null;
 	ArrayList<No> variaveis;
 	private int count = 0;
 
@@ -17,7 +17,12 @@ public class ArvoreDecisao {
 	}
 
 	public No getRaizAD() {
-		return root;
+		return raiz;
+	}
+	
+	//FIXME Ói
+	public void setRaizAD(No novaRaiz) {
+		raiz = novaRaiz;
 	}
 
 	private void popularArray() {
@@ -80,11 +85,11 @@ public class ArvoreDecisao {
 		++count;
 		dir = criarADR();
 
-		root = no;
-		root.setNoEsquerda(esq);
-		root.setNoDireita(dir);
+		raiz = no;
+		raiz.setNoEsquerda(esq);
+		raiz.setNoDireita(dir);
 
-		return root;
+		return raiz;
 	}
 
 	public void pesquisa(No no) {
