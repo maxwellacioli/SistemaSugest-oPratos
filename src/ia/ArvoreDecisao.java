@@ -16,7 +16,7 @@ public class ArvoreDecisao {
 		criarADR();
 	}
 
-	public No getRoot() {
+	public No getRaizAD() {
 		return root;
 	}
 
@@ -87,7 +87,7 @@ public class ArvoreDecisao {
 		return root;
 	}
 
-	private void pesquisaDeIntencao(No no) {
+	public void pesquisa(No no) {
 		if (no.eFolha()) {
 			System.out.println(no.toString());
 			return;
@@ -108,14 +108,14 @@ public class ArvoreDecisao {
 				no.setPergunta(false);
 				respostaValida = false;
 			} else {
-				System.out.println("Responda apenas com SIM ou NAO!");
+				System.out.println("Responda apenas com (SIM) ou (NAO)!");
 			}
 		}
 
 		if (no.getPergunta()) {
-			pesquisaDeIntencao(no.getNoEsquerda());
+			pesquisa(no.getNoEsquerda());
 		} else {
-			pesquisaDeIntencao(no.getNoDireita());
+			pesquisa(no.getNoDireita());
 		}
 	}
 
@@ -128,13 +128,5 @@ public class ArvoreDecisao {
 		printAD(no.getNoDireita());
 
 		System.out.println(no.toString());
-	}
-
-	public static void main(String[] args) {
-		ArvoreDecisao ad = new ArvoreDecisao();
-
-		// ad.printAD(ad.getRoot());
-
-		ad.pesquisaDeIntencao(ad.getRoot());
 	}
 }
